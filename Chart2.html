@@ -1,0 +1,29 @@
+﻿<html>
+ <head>
+ <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+ <script type="text/javascript">
+    google.load("visualization", "1", {packages:["corechart"]});
+    google.setOnLoadCallback(drawChart);
+    function drawChart() {
+     var data = google.visualization.arrayToDataTable([
+        ['Year','NextGen', 'OldGen',{ role: 'annotation' } ],
+        ['2013', 73, 104,''],
+        ['2014', 99, 141,''],
+        ['2015', 42, 61,'']
+      ]);
+
+      var view = new google.visualization.DataView(data);
+
+      var options = {
+        title: "Music Source by Year",
+        width: 600,
+        height: 400,
+        bar: {groupWidth: "95%"},
+        legend: { position: "top", maxLines: 2 },
+		isStacked: true,
+      };
+      var chart = new google.visualization.ColumnChart(document.getElementById("columnchart_values"));
+      chart.draw(view, options);
+  }
+  </script>
+<div id="columnchart_values" style="width: 900px; height: 300px;"></div>

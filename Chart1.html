@@ -1,0 +1,31 @@
+﻿<html>
+  <head>
+    <script type="text/javascript" src="https://www.google.com/jsapi"></script>
+    <script type="text/javascript">
+      google.load("visualization", "1", {packages:["corechart"]});
+      google.setOnLoadCallback(drawChart);
+      function drawChart() {
+
+        var data = google.visualization.arrayToDataTable([
+          ['Music Source', 'Market Share'],
+          ['Tidal',     108],
+          ['iTunes',      112],
+          ['Spotify',  106],
+          ['7Digital', 101],
+          ['mp3',    93]
+        ]);
+
+        var options = {
+          title: 'Musice Listening Trends (Android 2013-2015)'
+        };
+
+        var chart = new google.visualization.PieChart(document.getElementById('piechart'));
+
+        chart.draw(data, options);
+      }
+    </script>
+  </head>
+  <body>
+    <div id="piechart" style="width: 900px; height: 500px;"></div>
+  </body>
+</html>
